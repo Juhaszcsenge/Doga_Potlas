@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+             margin: 0;
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            justify-content: center;
+            background-image: linear-gradient( to bottom right, rgba(79,51,176,1.0),rgba(210,53,165));
+        }
+    </style>
+</head>
+<body>
+    <h1>Új könyv felvétele</h1>
+    <form method="post">
+        <label for="rating">
+            Rating:
+            <input type="number" required name="rating" step="1"><br>
+        </label>
+
+        <label for="title">
+            Title:
+            <input type="text" name="title" required style="padding-right: 19px;"><br>
+        </label>
+        <button type="submit">Felvesz</button><br>
+        <a href="/" style="color: black;">Vissza a főoldalra</a>
+    </form>
+</body>
+</html>

@@ -3,12 +3,98 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title><%= message %></title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
     <script src='main.js'></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .checked {
+          color: rgb(220, 20, 238);
+        }
+        .center {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .text-center{
+            text-align: center;
+        }
+        div{
+            text-align:center;
+        }
+        body{
+             margin: 0;
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            justify-content: center;
+            background-image: linear-gradient( to bottom right, rgba(79,51,176,1.0),rgba(210,53,165));
+        }
+        button ::after{
+            background: linear-gradient(45deg, pink, purple, green, yellow, red, blue, lightblue, orangered);
+            background-size: 400%;
+            opacity: 0;
+            transition: 0.5s;
+            animation: animate 20s linear infinite;
+
+        }
+        button ::before{
+            background: linear-gradient(45deg, pink, purple, green, yellow, red, blue, lightblue, orangered);
+            background-size: 400%;
+            transition: 0.5s;
+            filter: blur(20px);
+            animation: animate 20s linear infinite;
+          
+        }
+        button :hover ::before,
+        button :hover ::after
+        {
+            opacity: 1;
+        }
+        @keyframes animate
+        {
+            0% {
+                background-position: 0 0;
+            }
+            50% {
+                background-position: 300% 0;
+            }
+            100% {
+                background-position: 0 0;
+            }
+        }
+        </style>
 </head>
 <body>
-    <p><%= message %></p>
+    <form method="get" action="/keres">
+        <div>
+        <input type="number" name="rating" id="rating">
+        <button type="submit">Keres</button>
+        </div>
+    </form>
+
+    
+    <table class="center">
+        <% for(let b of Books) { %>
+            <tr>
+                <td>
+                    <%= b.title %>
+                </td>
+                <td>
+                    <%= b.rating %>
+                    <% for( let index = 0; index < b.rating; index++ ) { %>
+                        <span style="color: black;">★
+                        </span>
+                    <% } %>
+               
+                </td>
+            </tr>
+
+      <% } %>
+    </table>
+    <div class="text-center">
+    <a href="books/new"><button type="submit">Új könyv felvétele</button></a>
+    </div>
 </body>
 </html>

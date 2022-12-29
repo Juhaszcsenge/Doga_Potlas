@@ -5,6 +5,6 @@ export default mysql
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'database',
+    database: 'konyv',
   })
   .promise();
